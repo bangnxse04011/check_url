@@ -24,6 +24,7 @@
               </div>
               <button type="submit" class="btn btn-primary">Kiểm Tra</button>
             </form>
+            <h3 style="color: red;text-align: center"><%= mess %></h3>
           </div>
         </div>
         <% if(result_check_url) { %>
@@ -34,8 +35,11 @@
               <h3 class="panel-title">Kết Quả</h3>
             </div>
             <div class="panel-body">
-              <% if(result_check_url.positives == 0) {  %>
-                <h4>Tỉ Lệ: <b style="color: blue;"><%= result_check_url.positives %> / <%= result_check_url.total %></b></h4>
+              <%  if(result_check_url.positives == -1) {  %>
+                <h4>Tỉ Lệ: <b style="color: blue;"> --- / ---</b></h4>
+                <h4><b style="color: fuchsia;">Đủ 18+ Chưa.</b></h4>
+              <% } else if(result_check_url.positives == 0) {  %>
+                <h4>Tỉ Lệ: <b style="color: blue;"> 0 / <%= result_check_url.total %></b></h4>
                 <h4><b style="color: green;">Không Có Nguy Hiểm.</b></h4>
               <% } else { %>
                 <h4>Tỉ Lệ: <b style="color: red;"><%= result_check_url.positives %> / <%= result_check_url.total %></b></h4>
@@ -45,6 +49,7 @@
             </div>
           </div>
           <% } %>
+          
       </div>
     </div>
   </div>
