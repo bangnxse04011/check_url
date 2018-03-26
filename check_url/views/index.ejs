@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Upload file</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2" style="margin-top: 50px;">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Kiểm tra URL</h3>
+          </div>
+          <div class="panel-body">
+            <form action="/check_url" method="GET">
+              <legend>Nhập Vào URL</legend>
+              <div class="form-group">
+                <input type="text" class="form-control" name="url_scan" value="<%=_url_scan %>" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Kiểm Tra</button>
+            </form>
+          </div>
+        </div>
+        <% if(result_check_url) { %>
+          <br/>
+          <br/>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Kết Quả</h3>
+            </div>
+            <div class="panel-body">
+              <% if(result_check_url.positives == 0) {  %>
+                <h4>Tỉ Lệ: <b style="color: blue;"><%= result_check_url.positives %> / <%= result_check_url.total %></b></h4>
+                <h4><b style="color: green;">Không Có Nguy Hiểm.</b></h4>
+              <% } else { %>
+                <h4>Tỉ Lệ: <b style="color: red;"><%= result_check_url.positives %> / <%= result_check_url.total %></b></h4>
+                <h4><b style="color: red;">Nguy Hiểm.</b></h4>
+              <% } %>
+              <h4 style="text-align: right;"><a href=<%= result_check_url.permalink %>>Xem Chi Tiết</a></h4>
+            </div>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
