@@ -1,4 +1,4 @@
-
+const puppeteer = require('puppeteer');
 module.exports = {
     /** 
      * Method create url and api key using virustotal
@@ -12,7 +12,7 @@ module.exports = {
      * Method detect keyword
      */
     common_keyword_detect_url: () => {
-        let list_keyword = ['sex', 'game', 'jav', 'xxx', 'thiendia', 'khieudam', '18+', 'rikvip' , 'facebook'];
+        let list_keyword = ['sex', 'game', 'jav', 'xxx', 'thiendia', 'khieudam', '18+', 'rikvip', 'facebook', 'vlxx', 'xvideos'];
         return list_keyword;
     },
     /**
@@ -26,4 +26,11 @@ module.exports = {
             return true;
         }
     }
+    // common_open_new: (url) => {
+    //     const browser = puppeteer.launch({ headless: false });
+    //     const page = browser.newPage();
+    //     page.setViewport({ width: 1280, height: 720 });
+    //     page.goto(url, { waitUntil: 'networkidle2' });
+    //     // browser.close();
+    // }
 }

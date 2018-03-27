@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Kiểm Tra URL</title>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="icon" href="/images/icon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -17,7 +18,7 @@
             <h3 class="panel-title">Kiểm tra URL</h3>
           </div>
           <div class="panel-body">
-            <form action="/check_url" method="GET">
+            <form action="/api/v2/check_url" method="GET">
               <legend>Nhập Vào URL</legend>
               <div class="form-group">
                 <input type="text" class="form-control" name="url_scan" value="<%=_url_scan %>" required>
@@ -41,15 +42,15 @@
               <% } else if(result_check_url.positives == 0) {  %>
                 <h4>Tỉ Lệ: <b style="color: blue;"> 0 / <%= result_check_url.total %></b></h4>
                 <h4><b style="color: green;">Không Có Nguy Hiểm.</b></h4>
+                <h4 style="text-align: right;"><a href="<%= result_check_url.permalink %>" target="_blank">Xem Chi Tiết</a></h4>
               <% } else { %>
                 <h4>Tỉ Lệ: <b style="color: red;"><%= result_check_url.positives %> / <%= result_check_url.total %></b></h4>
                 <h4><b style="color: red;">Nguy Hiểm.</b></h4>
+                <h4 style="text-align: right;"><a href="<%= result_check_url.permalink %>" target="_blank">Xem Chi Tiết</a></h4>
               <% } %>
-              <h4 style="text-align: right;"><a href=<%= result_check_url.permalink %>>Xem Chi Tiết</a></h4>
             </div>
           </div>
           <% } %>
-          
       </div>
     </div>
   </div>
