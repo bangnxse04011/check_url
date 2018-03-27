@@ -12,7 +12,7 @@ module.exports = {
      * Method detect keyword
      */
     common_keyword_detect_url: () => {
-        let list_keyword = ['sex', 'game', 'jav', 'xxx', 'thiendia', 'khieudam', '18+'];
+        let list_keyword = ['sex', 'game', 'jav', 'xxx', 'thiendia', 'khieudam', '18+', 'rikvip' , 'facebook'];
         return list_keyword;
     },
     /**
